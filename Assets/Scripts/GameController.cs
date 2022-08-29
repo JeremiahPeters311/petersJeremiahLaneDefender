@@ -7,6 +7,7 @@ public class GameController : MonoBehaviour
     InputActions Controls;
     public bool Restart = false;
     public int PlayerScore = 0;
+    public static int PlayerHighScore = 0;
     public int PlayerLives = 3;
     public GameObject InfantryReference;
     public GameObject TankReference;
@@ -14,6 +15,7 @@ public class GameController : MonoBehaviour
 
     public Text LivesText;
     public Text ScoreText;
+    public Text HighScoreText;
     public Text GameOverText;
 
     public AudioClip GameOver;
@@ -30,8 +32,14 @@ public class GameController : MonoBehaviour
     void Update()
     {
         //update ui
+        if (PlayerScore >= PlayerHighScore)
+        {
+            PlayerHighScore = PlayerScore;
+        }
         ScoreText.text = "Score: " + PlayerScore.ToString();
+        HighScoreText.text = "High Score: " + PlayerHighScore.ToString();
         LivesText.text = "Lives: " + PlayerLives.ToString();
+
 
         if (Restart == true)
         {
