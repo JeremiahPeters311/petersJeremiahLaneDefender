@@ -70,7 +70,7 @@ public class EnemyBehaviour : MonoBehaviour
     IEnumerator StunTimer()
     {
         MovementSpeed = 0;
-        EnemyReference.GetComponent<SpriteRenderer>().color = new Color(30, 30, 30);
+        EnemyReference.GetComponent<SpriteRenderer>().color = new Color(1, 0.2f, 0.2f);
         yield return new WaitForSecondsRealtime(0.1f);
         if (gameObject.name == "bhinfantry(Clone)")
         {
@@ -84,6 +84,7 @@ public class EnemyBehaviour : MonoBehaviour
         {
             MovementSpeed = 1;
         }
+        EnemyReference.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1);
         yield return 0;
     }
 }

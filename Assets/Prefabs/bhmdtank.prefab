@@ -120,6 +120,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MovementSpeed: 3
+  CurrentHp: 5
+  Score: 0
+  PlayerReference: {fileID: 0}
+  EnemyReference: {fileID: 4264059582145651365}
   ExplosionReference: {fileID: 8042583090832692247, guid: 4b7b80909f8b5cb4ca0d018a35eed12f, type: 3}
   DestroySound: {fileID: 8300000, guid: 5a29751649077154ea5db0429faaffbb, type: 3}
 --- !u!61 &3815976280308762211
