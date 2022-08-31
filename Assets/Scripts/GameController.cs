@@ -1,6 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 
 public class GameController : MonoBehaviour
@@ -14,10 +13,12 @@ public class GameController : MonoBehaviour
     public GameObject TankReference;
     public GameObject MdTankReference;
 
-    public Text LivesText;
-    public Text ScoreText;
-    public Text HighScoreText;
-    public Text GameOverText;
+    public TMP_Text LivesText;
+    public TMP_Text ScoreText;
+    public TMP_Text HighScoreText;
+    public TMP_Text GameOverText;
+
+    string highScoreKey = "HighScore";
 
     public AudioClip GameOver;
 
@@ -29,6 +30,7 @@ public class GameController : MonoBehaviour
     private void Start()
     {
         Invoke("SpawnEnemy", 0f);
+        PlayerHighScore = PlayerPrefs.GetInt(highScoreKey, 0);
     }
     void Update()
     {
@@ -36,6 +38,8 @@ public class GameController : MonoBehaviour
         if (PlayerScore >= PlayerHighScore)
         {
             PlayerHighScore = PlayerScore;
+            PlayerPrefs.SetInt(highScoreKey, PlayerScore);
+            PlayerPrefs.Save();
         }
         ScoreText.text = "Score: " + PlayerScore.ToString();
         HighScoreText.text = "High Score: " + PlayerHighScore.ToString();

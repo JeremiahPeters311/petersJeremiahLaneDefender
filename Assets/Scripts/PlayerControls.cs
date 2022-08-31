@@ -1,6 +1,6 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
 
 public class PlayerControls : MonoBehaviour
 {
@@ -14,10 +14,11 @@ public class PlayerControls : MonoBehaviour
     public GameObject Player;
     public GameObject ShotReference;
     public GameObject ExplosionReference;
+    public GameObject BlastReference;
 
     public AudioClip DestroySound;
 
-    public Text LivesText;
+    public TMP_Text LivesText;
 
     private void Awake()
     {
@@ -58,14 +59,17 @@ public class PlayerControls : MonoBehaviour
                 CanShoot = false;
                 StartCoroutine(ShotTimer());
                 Vector3 BulletStart = transform.position;
-                BulletStart.x = transform.position.x + 2;
+                BulletStart.x = transform.position.x + 1.35f;
+                BlastReference.SetActive(true);
                 Instantiate(ShotReference, BulletStart, Quaternion.identity);
             }
         }
     }
     private IEnumerator ShotTimer()
     {
-        yield return new WaitForSecondsRealtime(0.25f);
+        yield return new WaitForSecondsRealtime(0.1f);
+        BlastReference.SetActive(false);
+        yield return new WaitForSecondsRealtime(0.15f);
         CanShoot = true;
         yield return 0;
     }
