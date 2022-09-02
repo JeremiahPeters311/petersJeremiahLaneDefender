@@ -6,6 +6,7 @@ public class GameController : MonoBehaviour
 {
     InputActions Controls;
     public bool Restart = false;
+    public bool Dead = false;
     public int PlayerScore = 0;
     public static int PlayerHighScore = 0;
     public int PlayerLives = 3;
@@ -54,7 +55,10 @@ public class GameController : MonoBehaviour
         if (PlayerLives <= 0)
         {
             //game over
-            StartCoroutine(Death());
+            if (Dead == true)
+            {
+                StartCoroutine(Death());
+            }
         }
     }
     void SpawnEnemy()
@@ -82,8 +86,7 @@ public class GameController : MonoBehaviour
     }
     IEnumerator Death()
     {
-        //turn off music
-        //This.SetActive(false);
+        Dead = true;
 
         //wait for explosion to finish
         yield return new WaitForSecondsRealtime(0.75f);

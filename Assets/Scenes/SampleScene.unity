@@ -1632,6 +1632,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Restart: 0
+  Dead: 0
   PlayerScore: 0
   PlayerLives: 3
   InfantryReference: {fileID: 3779053298752190937, guid: 1bc640293c9f6a140beaf2a8c9570e08, type: 3}
@@ -1931,7 +1932,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 20
-  m_Sprite: {fileID: 21300000, guid: fe4263a826e6b7d4a856acfae9837f33, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1aa889ad369e9914fa96dfaea7f3d060, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
